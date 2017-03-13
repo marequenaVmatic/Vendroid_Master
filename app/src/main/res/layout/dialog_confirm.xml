@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/space_15"
+        android:padding="@dimen/space_10"
+        android:text="@string/confirm_completed"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/edtReason"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_100"
+        android:hint="@string/confirm_completed_hint"
+        android:gravity="left|top"
+        android:textSize="@dimen/space_15"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="VOLVER"
+            android:textSize="@dimen/space_15"/>
+        <Button
+            android:id="@+id/btnOK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="CONFIRMAR"
+            android:textSize="@dimen/space_15"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reporte de jornada"
+                android:textSize="@dimen/space_20"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_line"
+                android:layout_marginTop="@dimen/space_10"
+                android:background="@color/color_vendomatica_blue"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tareas de día"
+                    android:textSize="@dimen/space_15" />
+
+                <TextView
+                    android:id="@+id/txtTaskCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_weight="100"
+                    android:gravity="right"
+                    android:text="15.00"
+                    android:textSize="@dimen/space_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tareas completadas"
+                    android:textSize="@dimen/space_15" />
+
+                <TextView
+                    android:id="@+id/txtCompleteTaskCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_weight="100"
+                    android:gravity="right"
+                    android:text="15.00"
+                    android:textSize="@dimen/space_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tares pendientes"
+                    android:textSize="@dimen/space_15" />
+
+                <TextView
+                    android:id="@+id/txtPendingTaskCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_weight="100"
+                    android:gravity="right"
+                    android:text="15.00"
+                    android:textSize="@dimen/space_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maquinas abastecidas"
+                    android:textSize="@dimen/space_15" />
+
+                <TextView
+                    android:id="@+id/txtAbastecimiento"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_weight="100"
+                    android:gravity="right"
+                    android:text="15.00"
+                    android:textSize="@dimen/space_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Máquinas recaudadas"
+                    android:textSize="@dimen/space_15" />
+
+                <TextView
+                    android:id="@+id/txtRecaudacion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_weight="100"
+                    android:gravity="right"
+                    android:text="15.00"
+                    android:textSize="@dimen/space_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Productos abastecidos"
+                    android:textSize="@dimen/space_15" />
+
+                <TextView
+                    android:id="@+id/txtTotalQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_weight="100"
+                    android:gravity="right"
+                    android:text="15.00"
+                    android:textSize="@dimen/space_15" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lnContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

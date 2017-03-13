@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_vendomatica_blue"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    style="@style/FontGray15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_15"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:text="Task Title"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtSummary"
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:layout_weight="0.8"
+                    android:text="Task Summary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtMachine"
+                    style="@style/FontGray15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:text="Task Summary" />
+
+                <TextView
+                    android:id="@+id/txtTaskBusiness"
+                    style="@style/FontGray15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:text="Task Summary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="50"
+                    android:gravity="center_vertical"
+                    android:text="Estado Maq:" />
+                <TextView
+                    android:id="@+id/txtEst"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medios de Pago"
+                android:textSize="@dimen/space_15"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_10"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Moneder:" />
+                <TextView
+                    android:id="@+id/txtMon"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Billetero:" />
+                <TextView
+                    android:id="@+id/txtBill"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Tarjetero:" />
+                <TextView
+                    android:id="@+id/txtTar"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Productos"
+                android:textSize="@dimen/space_15"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_10"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Nivel de Abast:" />
+                <TextView
+                    android:id="@+id/txtNiv"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Higiene"
+                android:textSize="@dimen/space_15"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_10"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Exterior:" />
+                <TextView
+                    android:id="@+id/txtExt"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Interior:" />
+                <TextView
+                    android:id="@+id/txtInt"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Atractivo Punto de Venta"
+                android:textSize="@dimen/space_15"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_10"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Serie Maq:" />
+                <TextView
+                    android:id="@+id/txtSer"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Serialetica:" />
+                <TextView
+                    android:id="@+id/txtSel"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginRight="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_3"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FontGray15"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_weight="30"
+                    android:gravity="center_vertical"
+                    android:text="Illuminacion:" />
+                <TextView
+                    android:id="@+id/txtIll"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:text="Value1"
+                    style="@style/FontGray15"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtPic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selected Pictures"
+                android:textSize="@dimen/space_20"
+                android:textColor="@color/clr_blue"
+                android:layout_marginLeft="@dimen/space_15"
+                android:layout_marginTop="@dimen/space_10"/>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:id="@+id/lnImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_80"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

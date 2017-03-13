@@ -1,0 +1,11 @@
+<resources>
+    <string name="mi_content_description_skip">Saltar</string>
+    <string name="mi_content_description_back">Atras</string>
+    <string name="mi_content_description_next">Siguiente</string>
+    <string name="mi_content_description_next_finish">Finalizar</string>
+    <plurals name="mi_label_grant_permission">
+        <item quantity="one">Condecer Permisos</item>
+        <item quantity="other">Permisos</item>
+    </plurals>
+    <string name="mi_label_button_cta">Iniciar</string>
+</resources>

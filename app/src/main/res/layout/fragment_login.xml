@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:fitsSystemWindows="false"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/mi_baseline">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/title_fragment_login"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+    <EditText
+        android:id="@+id/fakeUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mi_baseline"
+        android:hint="@string/text_username"/>
+
+    <EditText
+        android:id="@+id/fakePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/fakeLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mi_baseline"
+        android:text="@string/text_continue"
+        android:theme="@style/AppThemeDark"/>
+
+</LinearLayout>

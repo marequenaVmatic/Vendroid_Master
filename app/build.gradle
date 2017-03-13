@@ -1,0 +1,75 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def versionMajor = 1
+def versionMinor = 6
+def versionPatch = 0
+def versionBuild = 0 // bump for dogfood builds, public betas, etc.
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion '24.0.1'
+    defaultConfig {
+        applicationId 'com.vendomatica.vendroid'
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionName "${versionMajor}.${versionMinor}" + (versionPatch == 0 ? "" : ".${versionPatch}")
+    }
+    lintOptions {
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+}
+
+dependencies {
+    compile project(':library')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //Support
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:support-v4:24.2.0'
+    compile 'com.android.support:design:24.2.0'
+    //Firebase
+    compile 'com.google.firebase:firebase-core:9.0.0'
+    compile 'com.google.firebase:firebase-crash:9.0.0'
+    //Other
+    compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    compile files('lib/httpclient-4.5.3.jar')
+    compile files('lib/httpmime-4.5.3.jar')
+    compile files('lib/httpcore-4.4.6.jar')
+    compile files('lib/httpclient-win-4.5.3.jar')
+    compile files('lib/httpclient-cache-4.5.3.jar')
+    compile files('gson-2.2.4.jar')
+
+}
+
+apply plugin: 'com.google.gms.google-services'
