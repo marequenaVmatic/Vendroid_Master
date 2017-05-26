@@ -1,7 +1,7 @@
 package com.vendomatica.vendroid.Model;
 
 /**
- * Created by shevchenko on 2015-12-27.
+ * Created by Miguel Requena on 2015-12-27.
  */
 public class MenuItemButton {
     public String txtMenu;

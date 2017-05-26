@@ -1,7 +1,7 @@
 package com.vendomatica.vendroid.Model;
 
 /**
- * Created by shevchenko on 2015-11-28.
+ * Created by Miguel Requena on 2015-11-28.
  */
 public class TaskInfo {
 

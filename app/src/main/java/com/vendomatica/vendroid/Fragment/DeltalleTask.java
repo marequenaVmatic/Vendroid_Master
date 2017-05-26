@@ -7,67 +7,47 @@ import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.FileProvider;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.vendomatica.vendroid.Common.Common;
-import com.vendomatica.vendroid.MainActivity;
-import com.vendomatica.vendroid.Model.Estado;
+import com.vendomatica.vendroid.Model.ConfigPantalla;
 import com.vendomatica.vendroid.Model.GpsInfo;
-import com.vendomatica.vendroid.Model.Tickets;
+import com.vendomatica.vendroid.Model.Tabla;
+import com.vendomatica.vendroid.Model.Tarea;
+import com.vendomatica.vendroid.Model.TareaDetalle;
 import com.vendomatica.vendroid.R;
 import com.vendomatica.vendroid.db.DBManager;
-import com.vendomatica.vendroid.net.NetworkManager;
 import com.vendomatica.vendroid.services.LogService;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
-import static android.app.Activity.RESULT_OK;
 
 @SuppressLint("ValidFragment")
 public class DeltalleTask extends Fragment {
     Context mContext;
-    private LinearLayout lnTasks;
+    private LinearLayout lnDet;
     private ComponentName mService;
     private List<String> itemsEstado = new ArrayList<String>();
     private List<String> itemsClasificacion = new ArrayList<String>();
     private List<String> itemsFalla = new ArrayList<String>();
     private Button btnSend;
     private Button btnPhoto;
-    private Tickets ticket;
+    private Tarea ticket;
+    private ConfigPantalla cPant;
+    private ArrayList<Tabla> tabFalla;
+    private ArrayList<Tabla> tabEstado;
     //foto
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -97,43 +77,41 @@ public class DeltalleTask extends Fragment {
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.detalle_ticket, null);
+        DBManager.setContext(getContext());
+        ticket = (Tarea) getArguments().getSerializable("task");
+        cPant = (ConfigPantalla) getArguments().getSerializable("Config");
 
-        ticket = (Tickets) getArguments().getSerializable("task");
-        String rrr = getArguments().getString("taskid");
+        lnDet = (LinearLayout) view.findViewById(R.id.lnDet);
+        lnDet.removeAllViews();
 
-        TextView txtRuta = (TextView) view.findViewById(R.id.txtRutaA);
-        TextView txtSerieM = (TextView) view.findViewById(R.id.txtSerieM);
-        TextView txtLlamador = (TextView) view.findViewById(R.id.txtLlamador);
-        TextView txtTlf = (TextView) view.findViewById(R.id.txtTlf);
-        TextView txtTicket = (TextView) view.findViewById(R.id.txtTicket);
-        TextView txtcoment = (TextView) view.findViewById(R.id.txtComent);
-        final EditText txtComent = (EditText) view.findViewById(R.id.txtObserva);
-        txtRuta.setText(ticket.RutaAbastecimiento);
-        txtSerieM.setText(ticket.SerieMaquina);
-        txtLlamador.setText(ticket.ContactoLlamada);
-        txtTlf.setText(ticket.ContactoFono);
-        txtTicket.setText(String.valueOf(ticket.id_doc));
-        txtcoment.setText(ticket.Observacion);
-        id_bitacora = String.valueOf(ticket.id_bitacora);
-        id_wkf = ticket.id_wkf;
-        id_usuario =Integer.parseInt(Common.getInstance().getLoginUser().getUserId());
+
+        //Detalle generado
+       ArrayList<TareaDetalle> TDs = new ArrayList<TareaDetalle>();
+        TDs = ticket.Detalle;
+        for (int i = 0; i <TDs.size(); i++) {
+            TareaDetalle DetTask = TDs.get(i);
+            LinearLayout aRow = (LinearLayout) View.inflate(getContext(), R.layout.row_formfragment, null);
+            LinearLayout.LayoutParams paramSet = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            paramSet.topMargin = (int) getResources().getDimension(R.dimen.space_5);
+            paramSet.leftMargin = (int) getResources().getDimension(R.dimen.space_5);
+            paramSet.rightMargin = (int) getResources().getDimension(R.dimen.space_5);
+
+            TextView txtfield1 = (TextView) aRow.findViewById(R.id.NombreCampo);
+            TextView txtfield2 = (TextView) aRow.findViewById(R.id.ValorCampo);
+            txtfield1.setText(DetTask.idCampo);
+            txtfield2.setText(DetTask.ValorCampo);
+
+           lnDet.addView(aRow);
+        }
+
+
         id_doc = ticket.id_doc;
         id_resolucion = 0;//Integer.parseInt(ticket.id_resolucion);
         bp1 = 0;
         bp2 = 0;
         id_archivo =0;
 
-        btnPhoto = (Button) view.findViewById(R.id.photobtntn) ;
-        btnPhoto.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                dispatchTakePictureIntent();
-                //((MainActivity)getActivity()).dispatchTakePictureIntent();
-
-
-            }
-        });
 
 
         btnSend = (Button) view.findViewById(R.id.sendbtn) ;
@@ -141,43 +119,43 @@ public class DeltalleTask extends Fragment {
             @Override
             public void onClick(View v) {
 
-                comentarios = txtComent.getText().toString();
-                if (comentarios.equals("")) {
-                    View contentView = getActivity().findViewById(android.R.id.content);
-                    Snackbar.make(contentView, "Debe indicar un comentario..", Snackbar.LENGTH_LONG).show();
-                } else if (NetworkManager.getManager().saveBitacora(codFalla, id_wkf, id_estado, id_usuario, id_doc, id_resolucion, bp1, bp2, comentarios, id_archivo, id_bitacora, latitud, longitud) > 0) {
-                    Common.getInstance().updateTab(getActivity());
-                    PendingTask fragment = new PendingTask();
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.content_frame, fragment);
-                    ft.commit();
-
-                }
+//                comentarios = txtComent.getText().toString();
+//                if (comentarios.equals("")) {
+//                    View contentView = getActivity().findViewById(android.R.id.content);
+//                    Snackbar.make(contentView, "Debe indicar un comentario..", Snackbar.LENGTH_LONG).show();
+//                } else if (NetworkManager.getManager().saveBitacora(codFalla, id_wkf, id_estado, id_usuario, id_doc, id_resolucion, bp1, bp2, comentarios, id_archivo, id_bitacora, latitud, longitud) > 0) {
+//                    Common.getInstance().updateTab(getActivity());
+//                    PendingTask fragment = new PendingTask();
+//                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                    ft.replace(R.id.content_frame, fragment);
+//                    ft.commit();
+//
+//                }
             }
         });
 
-
-        Common.getInstance().arrEstado.clear();
-        NetworkManager.getManager().loadEstado(Common.getInstance().arrEstado,ticket.id_estado,ticket.id_wkf);
-        NetworkManager.getManager().loadClasificacion(Common.getInstance().arrClasificacion);
-        DBManager.getManager().insertEstados(Common.getInstance().arrEstado);
-        //DBManager.getManager().insertClasificacion(Common.getInstance().arrClasificacion);
+        String idestado  = "";
+        String idwkf  = "";
+        for (int i = 0; i <ticket.Detalle.size(); i++) {
+            if(ticket.Detalle.get(i).idCampo.equals("id_estado"))
+                idestado=ticket.Detalle.get(i).ValorCampo;
+            if(ticket.Detalle.get(i).idCampo.equals("id_wkf"))
+                idwkf=ticket.Detalle.get(i).ValorCampo;
+        }
 
 
         Spinner ddpEstado = (Spinner)view.findViewById(R.id.cboEstado);
-        for(int i=0; i<Common.getInstance().arrEstado.size(); i++) {
-            itemsEstado.add(Common.getInstance().arrEstado.get(i).Estado);
-        }
+        tabEstado = new ArrayList<Tabla>();
 
-        CustomAdapterDll customAdapter=new CustomAdapterDll(getContext(),itemsEstado);
+        tabEstado = DBManager.getManager().getTablas("Estados","id_wkf",idwkf,idestado);
+        CustomAdapterDll customAdapter=new CustomAdapterDll(getContext(),tabEstado);
         ddpEstado.setAdapter(customAdapter);
 
         ddpEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                id_estado =Common.getInstance().arrEstado.get(position).id_estado;
-                //Log.v("item", (String) parent.getItemAtPosition(position));
+                Tabla selectC = tabEstado.get(position);
             }
 
             @Override
@@ -189,25 +167,26 @@ public class DeltalleTask extends Fragment {
         final Spinner ddpfalla = (Spinner)view.findViewById(R.id.cboFalla);
 
         Spinner ddpClasifcacion = (Spinner)view.findViewById(R.id.cboClasificacion);
-        for(int i=0; i<Common.getInstance().arrClasificacion.size(); i++) {
-            itemsClasificacion.add(Common.getInstance().arrClasificacion.get(i).ClasificacionFalla);
-        }
 
-        CustomAdapterDll customAdapterCla=new CustomAdapterDll(getContext(),itemsClasificacion);
+        ArrayList<Tabla> tabClasificacion = new ArrayList<Tabla>();
+
+        tabClasificacion = DBManager.getManager().getTablas("Clasificacion","","","");
+
+            CustomAdapterDll customAdapterCla=new CustomAdapterDll(getContext(),tabClasificacion);
         ddpClasifcacion.setAdapter(customAdapterCla);
 
+        final ArrayList<Tabla> finalTabClasificacion = tabClasificacion;
         ddpClasifcacion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                String vvv = itemsClasificacion.get(position).toString();
-                Common.getInstance().arrFalla.clear();
-                NetworkManager.getManager().loadFalla(Common.getInstance().arrFalla,Common.getInstance().arrClasificacion.get(position).CodClasificacionFalla);
-                itemsFalla.clear();
-                for(int i=0; i<Common.getInstance().arrFalla.size(); i++) {
-                    itemsFalla.add(Common.getInstance().arrFalla.get(i).Nombre);
-                }
-                CustomAdapterDll customAdapterFalla=new CustomAdapterDll(getContext(),itemsFalla);
+                Tabla selectC = finalTabClasificacion.get(position);
+                tabFalla = new ArrayList<Tabla>();
+                DBManager.setContext(getContext());
+                tabFalla = DBManager.getManager().getTablas("Falla","Clasificacion",selectC.idCampo.toString(),"");
+
+
+                CustomAdapterDll customAdapterFalla=new CustomAdapterDll(getContext(),tabFalla);
                 ddpfalla.setAdapter(customAdapterFalla);
             }
 
@@ -220,10 +199,7 @@ public class DeltalleTask extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                String vvv = itemsFalla.get(position).toString();
-                codFalla = Common.getInstance().arrFalla.get(position).CodFalla;
-                //NetworkManager.getManager().loadFalla(Common.getInstance().arrFalla,Common.getInstance().arrClasificacion.get(position).CodClasificacionFalla);
-                //Log.v("item", (String) parent.getItemAtPosition(position));
+                Tabla selectC = tabFalla.get(position);
             }
 
             @Override
@@ -254,7 +230,7 @@ public class DeltalleTask extends Fragment {
 
         GpsInfo info = new GpsInfo(getContext());
         Intent service = new Intent(getContext(), LogService.class);
-        service.putExtra("userid", Common.getInstance().getLoginUser().getUserId());
+        service.putExtra("userid","");
         service.putExtra("taskid", String.valueOf(nTaskID));
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         service.putExtra("datetime", time);
@@ -266,77 +242,9 @@ public class DeltalleTask extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            String loca= mCurrentPhotoPath;
-
-            ImageView mImageView = (ImageView)view.findViewById(R.id.photoImage);
-            mImageView.setImageBitmap(imageBitmap);
-        }
-    }
-
-    public void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(getActivity(),"com.vendomatica.vendroid.provider",photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-        }
     }
 
 
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) +".jpg";
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
 
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
-    private void setPic() {
-        // Get the dimensions of the View
-        //int targetW = mImageView.getWidth();
-        //int targetH = mImageView.getHeight();
-        int targetW = 100;
-        int targetH = 100;
-        // Get the dimensions of the bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
-
-        // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-
-        // Decode the image file into a Bitmap sized to fill the View
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        //mImageView.setImageBitmap(bitmap);
-    }
 
 }

@@ -13,7 +13,8 @@ public class LogFile {
     private String filePath;
     private String fileType;
 
-    public LogFile(int taskID, String filePath, String captureFile, String fileType) {
+    //public LogFile(int taskID, String filePath, String captureFile, String fileType) {
+    public LogFile(String filePath, String captureFile, String fileType) {
         this.taskID = taskID;
         this.captureFile = captureFile;
         this.filePath = filePath;

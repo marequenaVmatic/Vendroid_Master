@@ -1,7 +1,7 @@
 package com.vendomatica.vendroid.Model;
 
 /**
- * Created by shevchenko on 2015-11-29.
+ * Created by Miguel Requena on 2017.
  */
 public class CommentError {
 

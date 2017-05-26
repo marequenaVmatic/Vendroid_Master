@@ -24,7 +24,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/mi_baseline"
         app:layout_parallaxFactor="1.25"
-        android:src="@drawable/art_plane"
+        android:src="@drawable/loading"
         tools:ignore="ContentDescription"/>
 
     <RatingBar

@@ -1,54 +1,54 @@
-<resources>
-    <string name="app_name">Vendroid (MRO)</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="MissingTranslation">Vendroid (MRO)</string>
 
-    <string name="title_menu_github"></string>
-    <string name="title_menu_reset_first_start"></string>
+    <string name="title_menu_github" tools:ignore="MissingTranslation"></string>
+    <string name="title_menu_reset_first_start" tools:ignore="MissingTranslation"></string>
 
-    <string name="label_options">Options:</string>
-    <string name="label_option_fullscreen">Enable fullscreen</string>
-    <string name="label_option_scrollable">Scrollable slides</string>
-    <string name="label_option_custom_fragments">Enable custom fragments</string>
-    <string name="label_option_permissions">Enable permission request</string>
-    <string name="label_option_show_back">Show back button</string>
-    <string name="label_option_show_next">Show next button</string>
-    <string name="label_option_skip_enabled">Enable skip button</string>
-    <string name="label_option_finish_enabled">Enable finish button</string>
-    <string name="label_option_get_started_enabled">Enable \"Iniciar\" button</string>
-    <string name="label_start_intro">Start intro</string>
-    <string name="label_or">or</string>
-    <string name="label_demos">Demos: </string>
-    <string name="label_start_canteen">\"Canteen\" intro</string>
-    <string name="label_start_splash">Splash screen</string>
+    <string name="label_options" tools:ignore="MissingTranslation">Options:</string>
+    <string name="label_option_fullscreen" tools:ignore="MissingTranslation">Enable fullscreen</string>
+    <string name="label_option_scrollable" tools:ignore="MissingTranslation">Scrollable slides</string>
+    <string name="label_option_custom_fragments" tools:ignore="MissingTranslation">Enable custom fragments</string>
+    <string name="label_option_permissions" tools:ignore="MissingTranslation">Enable permission request</string>
+    <string name="label_option_show_back" tools:ignore="MissingTranslation">Show back button</string>
+    <string name="label_option_show_next" tools:ignore="MissingTranslation">Show next button</string>
+    <string name="label_option_skip_enabled" tools:ignore="MissingTranslation">Enable skip button</string>
+    <string name="label_option_finish_enabled" tools:ignore="MissingTranslation">Enable finish button</string>
+    <string name="label_option_get_started_enabled" tools:ignore="MissingTranslation">Enable \"Iniciar\" button</string>
+    <string name="label_start_intro" tools:ignore="MissingTranslation">Start intro</string>
+    <string name="label_or" tools:ignore="MissingTranslation">or</string>
+    <string name="label_demos" tools:ignore="MissingTranslation">Demos: </string>
+    <string name="label_start_canteen" tools:ignore="MissingTranslation">\"Canteen\" intro</string>
+    <string name="label_start_splash" tools:ignore="MissingTranslation">Splash screen</string>
 
-    <string name="title_intro">Vendroid</string>
-    <string name="title_material_bold">Bold, graphic, intentional</string>
-    <string name="title_material_motion">Motion provides meaning</string>
-    <string name="title_material_shadow">Light and shadow</string>
+    <string name="title_intro" tools:ignore="MissingTranslation">Vendroid</string>
+    <string name="title_material_bold" tools:ignore="MissingTranslation">Bold, graphic, intentional</string>
+    <string name="title_material_motion" tools:ignore="MissingTranslation">Motion provides meaning</string>
+    <string name="title_material_shadow" tools:ignore="MissingTranslation">Light and shadow</string>
 
-    <string name="description_intro">Bienvenido a Vendomatica.</string>
-    <string name="description_material_bold">The foundational elements of print-based design – typography, grids, space, scale, color, and use of imagery – guide visual treatments.</string>
-    <string name="description_material_motion">Motion respects and reinforces the user as the prime mover. Primary user actions are inflection points that initiate motion, transforming the whole design.</string>
-    <string name="description_material_shadow">Within the material environment, virtual lights illuminate the scene. Key lights create directional shadows, while ambient light creates soft shadows from all angles.</string>
+    <string name="description_intro" tools:ignore="MissingTranslation">Bienvenido a Vendomatica.</string>
+    <string name="description_material_bold" tools:ignore="MissingTranslation">The foundational elements of print-based design – typography, grids, space, scale, color, and use of imagery – guide visual treatments.</string>
+    <string name="description_material_motion" tools:ignore="MissingTranslation">Motion respects and reinforces the user as the prime mover. Primary user actions are inflection points that initiate motion, transforming the whole design.</string>
+    <string name="description_material_shadow" tools:ignore="MissingTranslation">Within the material environment, virtual lights illuminate the scene. Key lights create directional shadows, while ambient light creates soft shadows from all angles.</string>
 
-    <string name="title_permissions">Permisos.</string>
-    <string name="description_permissions">Esta Aplicación necesita poder accesar a la Camara, Ubicación, y Bluetooh.\n estos son los permisos minimos para funcionar.</string>
-    <string name="label_grant_permissions">Por favor permita los permisos necesarios para continuar.</string>
+    <string name="title_permissions" tools:ignore="MissingTranslation">Permisos.</string>
+    <string name="description_permissions" tools:ignore="MissingTranslation">Esta Aplicación necesita poder accesar a la Camara, Ubicación, y Bluetooh.\n estos son los permisos minimos para funcionar.</string>
+    <string name="label_grant_permissions" tools:ignore="MissingTranslation">Por favor permita los permisos necesarios para continuar.</string>
 
-    <string name="label_button_cta">Click me!</string>
-    <string name="toast_button_cta">Hey, that\'s how custom CTA buttons work in material-intro!</string>
+    <string name="label_button_cta" tools:ignore="MissingTranslation">Click me!</string>
+    <string name="toast_button_cta" tools:ignore="MissingTranslation">Hey, that\'s how custom CTA buttons work in material-intro!</string>
 
-    <string name="title_fragment_login">Bienvenido a Vendroid.</string>
-    <string name="text_username">Usuario</string>
-    <string name="text_password">Contraseña</string>
-    <string name="text_continue">Continuar</string>
-    <string name="label_fake_login_loading">Cargando…</string>
-    <string name="label_fake_login_success">Logged in ☺</string>
-    <string name="label_fake_login_success_message">Acceso permitido.</string>
-    <string name="label_fill_out_form">debe ingresar usuario y contraseña.</string>
+    <string name="title_fragment_login" tools:ignore="MissingTranslation">Bienvenido a Vendroid.</string>
+    <string name="text_username" tools:ignore="MissingTranslation">Usuario</string>
+    <string name="text_password" tools:ignore="MissingTranslation">Contraseña</string>
+    <string name="text_continue" tools:ignore="MissingTranslation">Continuar</string>
+    <string name="label_fake_login_loading" tools:ignore="MissingTranslation">Cargando…</string>
+    <string name="label_fake_login_success" tools:ignore="MissingTranslation">Logged in ☺</string>
+    <string name="label_fake_login_success_message" tools:ignore="MissingTranslation">Acceso permitido.</string>
+    <string name="label_fill_out_form" tools:ignore="MissingTranslation">debe ingresar usuario y contraseña.</string>
 
-    <string name="title_fragment_custom">Take off!</string>
+    <string name="title_fragment_custom" tools:ignore="MissingTranslation">Take off!</string>
 
-    <string name="label_activity_finish">Nothing here…\n…just a demo how to create a splash screen intro.</string>
+    <string name="label_activity_finish" tools:ignore="MissingTranslation">Nothing here…\n…just a demo how to create a splash screen intro.</string>
 
     <string name="title_canteen_intro1" translatable="false">Menus right on your screen</string>
     <string name="title_canteen_intro2" translatable="false">Cash on delivery</string>
@@ -59,26 +59,26 @@
     <string name="label_button_cta_canteen_intro" translatable="false">Get started</string>
 
 
-    <string name="openDrawer">Menu abierto</string>
-    <string name="closeDrawer">Menu cerrado</string>
+    <string name="openDrawer" tools:ignore="MissingTranslation">Menu abierto</string>
+    <string name="closeDrawer" tools:ignore="MissingTranslation">Menu cerrado</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="fragment1">Fragment 1</string>
-    <string name="fragment3">Fragment 3</string>
-    <string name="fragment2">Fragment 2</string>
-    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment" tools:ignore="MissingTranslation">Hello blank fragment</string>
+    <string name="fragment1" tools:ignore="MissingTranslation">Fragment 1</string>
+    <string name="fragment3" tools:ignore="MissingTranslation">Fragment 3</string>
+    <string name="fragment2" tools:ignore="MissingTranslation">Fragment 2</string>
+    <string name="action_settings" tools:ignore="MissingTranslation">Settings</string>
 
 
-    <string name="discovery">Buscar Itag</string>
-    <string name="pairing">Sincronizando</string>
-    <string name="collecting">Recolectando datos </string>
-    <string name="capture_type">Tipo de captura</string>
-    <string name="capture_success">Capture Exitosa</string>
-    <string name="capture_error">Error en captura. Intete de nuevo</string>
-    <string name="confirm_completed">Usted marcará esta tarea\ncomo completada</string>
-    <string name="confirm_completed_hint">Por favor escribir un comentario</string>
-    <string name="loading_3hours">Carga inicio jornada\nde trabajo&#8230;</string>
-    <string name="loading">Cargando&#8230;</string>
+    <string name="discovery" tools:ignore="MissingTranslation">Buscar Itag</string>
+    <string name="pairing" tools:ignore="MissingTranslation">Sincronizando</string>
+    <string name="collecting" tools:ignore="MissingTranslation">Recolectando datos </string>
+    <string name="capture_type" tools:ignore="MissingTranslation">Tipo de captura</string>
+    <string name="capture_success" tools:ignore="MissingTranslation">Capture Exitosa</string>
+    <string name="capture_error" tools:ignore="MissingTranslation">Error en captura. Intete de nuevo</string>
+    <string name="confirm_completed" tools:ignore="MissingTranslation">Usted marcará esta tarea\ncomo completada</string>
+    <string name="confirm_completed_hint" tools:ignore="MissingTranslation">Por favor escribir un comentario</string>
+    <string name="loading_3hours" tools:ignore="MissingTranslation">Carga inicio jornada\nde trabajo&#8230;</string>
+    <string name="loading" tools:ignore="MissingTranslation">Cargando&#8230;</string>
 
 </resources>

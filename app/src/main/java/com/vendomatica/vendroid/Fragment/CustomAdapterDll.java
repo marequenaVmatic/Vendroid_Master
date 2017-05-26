@@ -8,25 +8,27 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.vendomatica.vendroid.Model.Tabla;
 import com.vendomatica.vendroid.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapterDll extends BaseAdapter {
     Context context;
     int flags[];
-    List<String> itemsEstado;
+    ArrayList<Tabla> Tabla;
     LayoutInflater inflter;
 
-    public CustomAdapterDll(Context applicationContext, List<String> itemsEstado) {
+    public CustomAdapterDll(Context applicationContext, ArrayList<Tabla> tablas) {
         this.context = applicationContext;
-        this.itemsEstado = itemsEstado;
+        this.Tabla = tablas;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return itemsEstado.size();
+        return Tabla.size();
     }
 
     @Override
@@ -43,7 +45,7 @@ public class CustomAdapterDll extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.item_ddl, null);
         TextView names = (TextView) view.findViewById(R.id.textView);
-        names.setText(itemsEstado.get(i));
+        names.setText(Tabla.get(i).ValorCampo);
         return view;
     }
 }

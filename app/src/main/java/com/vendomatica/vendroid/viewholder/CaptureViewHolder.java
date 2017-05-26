@@ -24,9 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.vendomatica.vendroid.Fragment.AbaTaskActivity;
 import com.vendomatica.vendroid.Common.Common;
-import com.vendomatica.vendroid.Model.LogFile;
 import com.vendomatica.vendroid.Model.TaskInfo;
 import com.vendomatica.vendroid.R;
 import com.vendomatica.vendroid.connectivity.AuditManagerBase;
@@ -42,6 +40,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+//import com.vendomatica.vendroid.Fragment.AbaTaskActivity;
 
 public class CaptureViewHolder implements IAuditManager {
     public static final String BT_DEVICE = "BTDevice";
@@ -365,7 +365,7 @@ public class CaptureViewHolder implements IAuditManager {
         messageTextView.setTextSize(24);
         toast.show();
         for (int i = 0; i < filesList.size(); i = i + 3) {
-            mDBManager.insertLogFile(new LogFile(mTaskInfo.getTaskID(), filesList.get(i), filesList.get(i + 1), filesList.get(i + 2)));
+            //mDBManager.insertLogFile(new LogFile(mTaskInfo.getTaskID(), filesList.get(i), filesList.get(i + 1), filesList.get(i + 2)));
             Log.d("AAA", "onSuccess() called with: " + "fileName = [" + filesList.get(i) + "]");
         }
         mPairingLoading.postDelayed(new Runnable() {

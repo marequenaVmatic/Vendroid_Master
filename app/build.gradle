@@ -17,12 +17,13 @@ def versionBuild = 0 // bump for dogfood builds, public betas, etc.
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.1'
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId 'com.vendomatica.vendroid'
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 24
-        versionName "${versionMajor}.${versionMinor}" + (versionPatch == 0 ? "" : ".${versionPatch}")
+        versionName '1'
+        multiDexEnabled true
     }
     lintOptions {
         abortOnError false
@@ -57,7 +58,7 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.android.support:design:24.2.0'
     //Firebase
-    compile 'com.google.firebase:firebase-core:9.0.0'
+    compile 'com.google.firebase:firebase-core:9.0.2'
     compile 'com.google.firebase:firebase-crash:9.0.0'
     //Other
     compile 'com.weiwangcn.betterspinner:library-material:1.1.0'
@@ -69,7 +70,8 @@ dependencies {
     compile files('lib/httpclient-win-4.5.3.jar')
     compile files('lib/httpclient-cache-4.5.3.jar')
     compile files('gson-2.2.4.jar')
-
+    compile 'com.google.android.gms:play-services:9.0.2'
+    compile 'com.android.support:multidex:1.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

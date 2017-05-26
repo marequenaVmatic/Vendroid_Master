@@ -17,9 +17,9 @@ public class SplashIntroActivity extends IntroActivity {
         setButtonCtaTintMode(BUTTON_CTA_TINT_MODE_TEXT);
 
         addSlide(new SimpleSlide.Builder()
-                .title(R.string.title_material_metaphor)
-                .description(R.string.description_material_metaphor)
-                .image(R.drawable.art_material_metaphor)
+                .title(R.string.title_intro)
+                .description(R.string.title_intro)
+                .image(R.drawable.loading)
                 .background(R.color.color_material_metaphor)
                 .backgroundDark(R.color.color_dark_material_metaphor)
                 .build());
@@ -27,7 +27,7 @@ public class SplashIntroActivity extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_material_bold)
                 .description(R.string.description_material_bold)
-                .image(R.drawable.art_material_bold)
+                .image(R.drawable.loading)
                 .background(R.color.color_material_bold)
                 .backgroundDark(R.color.color_dark_material_bold)
                 .build());
@@ -35,7 +35,7 @@ public class SplashIntroActivity extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_material_motion)
                 .description(R.string.description_material_motion)
-                .image(R.drawable.art_material_motion)
+                .image(R.drawable.loading)
                 .background(R.color.color_material_motion)
                 .backgroundDark(R.color.color_dark_material_motion)
                 .build());

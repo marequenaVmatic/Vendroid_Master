@@ -11,6 +11,7 @@ import com.heinrichreimersoftware.materialintro.app.OnNavigationBlockedListener;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 import com.heinrichreimersoftware.materialintro.slide.Slide;
+import com.vendomatica.vendroid.Fragment.LoginFragment;
 
 public class MainIntroActivity extends IntroActivity {
 
@@ -52,7 +53,7 @@ public class MainIntroActivity extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title(R.string.title_intro)
                 .description(R.string.description_intro)
-                .image(R.drawable.art_material_metaphor)
+                .image(R.drawable.loading)
                 .background(R.color.color_vendomatica)
                 .backgroundDark(R.color.color_vendomatica_dark)
                 .scrollable(scrollable)

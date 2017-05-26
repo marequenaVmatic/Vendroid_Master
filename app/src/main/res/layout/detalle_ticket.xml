@@ -11,6 +11,8 @@
         android:layout_height="match_parent"
         android:textAlignment="center">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,73 +33,15 @@
                 android:background="@color/color_vendomatica_blue"></LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnDet"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/space_10"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ruta abastecimiento"
-                    android:textSize="@dimen/space_15" />
-
-                <TextView
-                    android:id="@+id/txtRutaA"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_15"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:text="15.00"
-                    android:textSize="@dimen/space_15" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Serie maquina"
-                    android:textSize="@dimen/space_15" />
-
-                <TextView
-                    android:id="@+id/txtSerieM"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_15"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:text="15.00"
-                    android:textSize="@dimen/space_15" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Llamador"
-                    android:textSize="@dimen/space_15" />
-
-                <TextView
-                    android:id="@+id/txtLlamador"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_15"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:text="15.00"
-                    android:textSize="@dimen/space_15" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,81 +49,25 @@
                 android:layout_marginTop="@dimen/space_20"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Llamador teléfono"
-                    android:textSize="@dimen/space_15" />
-
-                <TextView
-                    android:id="@+id/txtTlf"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_15"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:text="15.00"
-                    android:textSize="@dimen/space_15" />
             </LinearLayout>
-
             <LinearLayout
+                android:id="@+id/lnContaine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:text="Fotografía Inicial"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="# Ticket"
-                    android:textSize="@dimen/space_15" />
-
-                <TextView
-                    android:id="@+id/txtTicket"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_15"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:text="15.00"
-                    android:textSize="@dimen/space_15" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_10"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Comentario"
-                    android:textSize="@dimen/space_15" />
-
-                <TextView
-                    android:id="@+id/txtComent"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_15"
-                    android:layout_weight="100"
-                    android:gravity="right"
-                    android:text="15.00"
-                    android:textSize="@dimen/space_15" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:orientation="horizontal">
-
+                    android:id="@+id/photobtntnini"
+                    android:visibility="visible"/>
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/cont_resp_wkf">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/space_line"
@@ -258,38 +146,38 @@
                     android:layout_width="fill_parent"
                     android:background="@drawable/customedit"
                     android:scrollbars="vertical"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+
                 <LinearLayout
                     android:id="@+id/lnContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <Button
-                        android:text="Tomar Fotografía"
+                        android:text="Fotografía Final"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/photobtntn" />
+                        android:id="@+id/photobtntnfin"
+                        android:visibility="visible"/>
 
                 </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/photoContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:text="Tomar Fotografía"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:id="@+id/photoImage" />
 
-                </LinearLayout>
                 <Button
-                    android:text="Enviar"
+                    android:id="@+id/sendbtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sendbtn" />
+                    android:text="Enviar" />
+
 
             </LinearLayout>
-
 
         </LinearLayout>
     </ScrollView>

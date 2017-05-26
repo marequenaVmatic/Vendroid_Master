@@ -4,37 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.design.widget.TabLayout;
-import android.view.View;
 
-import com.vendomatica.vendroid.Model.Category;
-import com.vendomatica.vendroid.Model.Clasificacion;
-import com.vendomatica.vendroid.Model.CommentError;
-import com.vendomatica.vendroid.Model.CompleteDetailCounter;
-import com.vendomatica.vendroid.Model.CompleteTask;
-import com.vendomatica.vendroid.Model.CompltedTinTask;
-import com.vendomatica.vendroid.Model.DetailCounter;
-import com.vendomatica.vendroid.Model.Estado;
-import com.vendomatica.vendroid.Model.Falla;
-import com.vendomatica.vendroid.Model.LoginUser;
-import com.vendomatica.vendroid.Model.MachineCounter;
-import com.vendomatica.vendroid.Model.PendingTasks;
-import com.vendomatica.vendroid.Model.Producto;
-import com.vendomatica.vendroid.Model.Producto_RutaAbastecimento;
-import com.vendomatica.vendroid.Model.Report;
-import com.vendomatica.vendroid.Model.TaskInfo;
-import com.vendomatica.vendroid.Model.TaskType;
-import com.vendomatica.vendroid.Model.Tickets;
-import com.vendomatica.vendroid.Model.TinTask;
 import com.vendomatica.vendroid.Model.User;
-import com.vendomatica.vendroid.R;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Timer;
 
 /**
- * Created by shevchenko on 2015-11-26.
+ * Created by Miguel Requena on 2017.
  * This has the global variables that uses in the app.
  */
 public class Common {
@@ -66,40 +43,14 @@ public class Common {
     public final static String PREF_KEY_LATEST_LNG = "LATEST::LNG";
 
     //WKF
-    public ArrayList<Tickets> arrTickets;
-    public ArrayList<Tickets> arrTicketsCerrados;
 
-    public ArrayList<CompleteTask> arrCompleteTasks;
-    public ArrayList<PendingTasks> arrPendingTasks;
-    public ArrayList<Estado> arrEstado;
-    public ArrayList<Clasificacion> arrClasificacion;
-    public ArrayList<Falla> arrFalla;
 
-    public ArrayList<TinTask> arrTinTasks;
-    public ArrayList<CompltedTinTask> arrCompleteTinTasks;
-    public ArrayList<Category> arrCategory;
-    public ArrayList<Producto> arrProducto;
-    public ArrayList<Producto_RutaAbastecimento> arrProducto_Ruta;
-    public ArrayList<User> arrUsers;
-    public ArrayList<TaskType> arrTaskTypes;
-    public ArrayList<CommentError> arrCommentErrors;
-    public ArrayList<MachineCounter> arrMachineCounters;
-    public ArrayList<TaskInfo> arrTickets_copy;
-    public ArrayList<CompleteTask> arrCompleteTasks_copy;
-    public ArrayList<PendingTasks> arrPendingTasks_copy;
-    public ArrayList<CompltedTinTask> arrCompleteTinTasks_copy;
-    public ArrayList<TinTask> arrTinTasks_copy;
-    public ArrayList<Category> arrCategory_copy;
-    public ArrayList<Producto> arrProducto_copy;
+
     public String server_host = "http://vex.cl/Upload/";
     public boolean isUpload = false;
     public String latitude;
     public String longitude;
     public String signaturePath;
-    public ArrayList<TinTask> arrAbastTinTasks;
-    public ArrayList<DetailCounter> arrDetailCounters;
-    public ArrayList<CompleteDetailCounter> arrCompleteDetailCounters;
-    public ArrayList<Report> arrReports;
     public boolean isAbastec = false;
     public boolean isNeedRefresh = false;
     public boolean dayly = false;
@@ -111,73 +62,31 @@ public class Common {
     public Timer mTimer;
     public Common()
     {
-        arrTickets = new ArrayList<Tickets>();
-        arrTicketsCerrados = new ArrayList<Tickets>();
-        arrCompleteTasks = new ArrayList<CompleteTask>();
-        arrPendingTasks = new ArrayList<PendingTasks>();
-
-        arrEstado = new ArrayList<Estado>();
-        arrClasificacion= new ArrayList<Clasificacion>();
-        arrFalla= new ArrayList<Falla>();
-
-
-        arrTinTasks = new ArrayList<TinTask>();
-        arrCompleteTinTasks = new ArrayList<CompltedTinTask>();
-        arrCategory = new ArrayList<Category>();
-        arrProducto = new ArrayList<Producto>();
-        arrProducto_Ruta = new ArrayList<Producto_RutaAbastecimento>();
-        arrUsers = new ArrayList<User>();
-        arrTaskTypes = new ArrayList<TaskType>();
-        arrCommentErrors = new ArrayList<CommentError>();
-        arrMachineCounters = new ArrayList<MachineCounter>();
-        arrTickets_copy = new ArrayList<TaskInfo>();
-        arrCompleteTasks_copy = new ArrayList<CompleteTask>();
-        arrPendingTasks_copy = new ArrayList<PendingTasks>();
-        arrCompleteTinTasks_copy = new ArrayList<CompltedTinTask>();
-        arrCategory_copy = new ArrayList<Category>();
-        arrProducto_copy = new ArrayList<Producto>();
-        arrTinTasks_copy = new ArrayList<TinTask>();
-        latitude = new String();
-        longitude = new String();
-        signaturePath = new String();
-        arrAbastTinTasks = new ArrayList<TinTask>();
-        arrDetailCounters = new ArrayList<DetailCounter>();
-        arrCompleteDetailCounters = new ArrayList<CompleteDetailCounter>();
         gBatteryPercent = "Unknown";
         gChargingUSB = false;
         gChargingOther = false;
-        arrReports = new ArrayList<Report>();
         isAbastec = false;
         mainAbastec = false;
         mainNoClick = false;
         mTimer = new Timer();
     }
 
-    private LoginUser loginUser;
+    private User mUser;
+    private Context mcontext;
     public final static int 		LEFTMENU_ANITIME = 250;
 
-    public LoginUser getLoginUser() {
-        return loginUser;
+    public User getLoginUser() {
+        User mUser = new User();
+        return mUser.getObject(mUser);
     }
 
-    public void setLoginUser(LoginUser loginUser) {
-        this.loginUser = loginUser;
+    public void setUser(User loginUser) {
+        User mUser = new User();
+        mUser.saveObject(loginUser);
+        this.mUser = mUser.getObject(mUser);
     }
 
-    public boolean isPendingTaks(int taskid)
-    {
-        boolean bRet = false;
-        for(int i = 0; i < arrPendingTasks.size(); i++)
-        {
-            PendingTasks task = arrPendingTasks.get(i);
-            if(task.taskid == taskid)
-            {
-                bRet = true;
-                break;
-            }
-        }
-        return bRet;
-    }
+
 
   public static String getAvailableInternalMemorySize() {
         File path = Environment.getDataDirectory();
@@ -213,11 +122,23 @@ public class Common {
 
     //actualizar cantidad de tareas.
     public void updateTab(Activity  context){
-        View contentView = context.findViewById(android.R.id.content);
-        TabLayout tabs = (TabLayout)contentView.findViewById(R.id.tabs);
+       /// View contentView = context.findViewById(android.R.id.content);
+        //TabLayout tabs = (TabLayout)contentView.findViewById(R.id.tabs);
         //tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-        tabs.getTabAt(0).setText("Pendientes ("+Common.getInstance().arrTickets.size()+")");
-        tabs.getTabAt(1).setText("Completados ("+Common.getInstance().arrTicketsCerrados.size()+")");
+        //tabs.getTabAt(0).setText("Pendientes ("+Common.getInstance().arrTickets.size()+")");
+        //tabs.getTabAt(1).setText("Completados ("+Common.getInstance().arrTicketsCerrados.size()+")");
     }
 
+    public Context getMcontext() {
+        return mcontext;
+    }
+
+    public void setMcontext(Context mcontext) {
+        this.mcontext = mcontext;
+    }
+
+    public void CTRL(){
+
+
+    }
 }
